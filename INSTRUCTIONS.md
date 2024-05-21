@@ -14,12 +14,12 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 
 ## Configure .env File:
-Create a .env file in the root directory of the project with the following content:
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_HOST_USER=your-email@gmail.com
-EMAIL_HOST_PASSWORD=your-app-password  # Use an App Password if MFA is enabled
-EMAIL_FROM=your-email@gmail.com
+Create a .env file in the root directory of the project with the following content:\
+EMAIL_HOST=smtp.gmail.com\
+EMAIL_PORT=587\
+EMAIL_HOST_USER=your-email@gmail.com\
+EMAIL_HOST_PASSWORD=your-app-password  # Use an App Password if MFA is enabled\
+EMAIL_FROM=your-email@gmail.com\
 ATTORNEY_EMAIL=attorney@example.com
 
 ## Running the Application
