@@ -1,3 +1,7 @@
+
+### Updated `DESIGN.md`
+
+```md
 ## Overview
 
 This document explains the design choices for the Lead Management Application, which collects lead information and sends email notifications to both the prospect and an internal attorney.
@@ -6,8 +10,8 @@ This document explains the design choices for the Lead Management Application, w
 
 ### Framework: FastAPI
 - **High Performance:** Offers excellent performance for asynchronous operations.
-- **Developer-Friendly:** Automatic data validation and serialization with Pydantic models
-- **Built-in Documentation:** Provides interactive API docs using Swagger and ReDoc. Great for both development and testing.
+- **Developer-Friendly:** Automatic data validation and serialization with Pydantic models.
+- **Built-in Documentation:** Provides interactive API docs. Great for both development and testing.
 
 ### ORM: SQLAlchemy
 - **Robust ORM:** Simplifies database interactions.
@@ -15,13 +19,21 @@ This document explains the design choices for the Lead Management Application, w
 - **Clean Code:** Encourages maintainable codebase with its concise syntax.
 
 ### Database: SQLite
-- **Simple and Lightweight:** Ideal for local dev since it doesn't require a separate server.
-- **Quick Setup:** No configs needed => allowing for fast development and testing.
-- **Easily Upgradable:** Can be replaced for a more robust database like PostgreSQL (i.e when moving to production).
+- **Simple and Lightweight:** Ideal for local development since it doesn't require a separate server.
+- **Quick Setup:** No configs needed, allowing for fast development and testing.
+- **Easily Upgradable:** Can be replaced with a more robust database like PostgreSQL when moving to production.
 
 ### Email Notifications
 - **Immediate Communication:** Ensures both prospect and attorney are promptly informed of new lead submissions.
 - **Standard Library:** Uses `smtplib` for sending emails, avoiding extra dependencies.
+
+### Authentication
+- **Security:** Implements token-based authentication using OAuth2 and JWT.
+- **Flexibility:** Allows for easy user management and secure endpoints.
+
+### Resume Uploads
+- **File Handling:** Supports uploading resume files via a form-data request.
+- **Accessibility:** Resumes can be accessed and downloaded via a specific endpoint.
 
 ### Environment Variables
 - **Security:** Keeps sensitive information like email credentials out of the codebase.
@@ -48,9 +60,10 @@ This document explains the design choices for the Lead Management Application, w
 **Endpoint:** `PUT /leads/{lead_id}/state`
 - **Functionality:** Updates the state of a lead to indicate it has been contacted. Assists in tracking the status of each lead.
 
-## Time Management
-Due to a busy schedule at work, I prioritized core functionalities and code quality, focusing on delivering a functional and well-documented application within the available time.
+### Viewing Resume
 
+**Endpoint:** `GET /resumes/{filename}`
+- **Functionality:** Serves the uploaded resume files for download and viewing.
 
 ## Future Improvements
 
